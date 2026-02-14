@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPro - Career Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>CareerPro</h1>
+            </div>
+            <p class="tagline">Discover Your Ideal Career Path with AI</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Career Prediction Form</h2>
+                <p class="form-description">Fill in your details below to get a personalized career recommendation</p>
+                
+                <div id="serverStatus" class="status-message">
+                    <i class="fas fa-circle-notch fa-spin"></i> Checking server connection...
+                </div>
+
+                <form id="predictForm">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="branch">Branch</label>
+                                <select id="branch">
+                                    <option value="">Select Branch</option>
+                                    <option value="CSE">Computer Science (CSE)</option>
+                                    <option value="IT">Information Technology (IT)</option>
+                                    <option value="ECE">Electronics & Communication (ECE)</option>
+                                    <option value="EEE">Electrical & Electronics (EEE)</option>
+                                    <option value="ME">Mechanical Engineering (ME)</option>
+                                    <option value="CE">Civil Engineering (CE)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Academic Performance</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tenth">10th Marks (%)</label>
+                                <input type="number" id="tenth" min="0" max="100" step="0.01" placeholder="e.g., 85.5">
+                                <span class="input-note">Percentage out of 100</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="twelfth">12th Marks (%)</label>
+                                <input type="number" id="twelfth" min="0" max="100" step="0.01" placeholder="e.g., 87.0">
+                                <span class="input-note">Percentage out of 100</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cgpa">CGPA</label>
+                                <input type="number" id="cgpa" min="0" max="10" step="0.01" placeholder="e.g., 8.5">
+                                <span class="input-note">Scale of 10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Skills & Abilities (Rate yourself 1-10)</h3>
+                        <div class="skills-grid">
+                            <div class="form-group">
+                                <label for="math">Mathematics Ability</label>
+                                <input type="number" id="math" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="prog">Programming Skill</label>
+                                <input type="number" id="prog" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="analytic">Analytical Thinking</label>
+                                <input type="number" id="analytic" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="art">Art & Creativity</label>
+                                <input type="number" id="art" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="eng">English Proficiency</label>
+                                <input type="number" id="eng" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="prob">Problem Solving</label>
+                                <input type="number" id="prob" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="logic">Logical Reasoning</label>
+                                <input type="number" id="logic" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="comm">Communication Skill</label>
+                                <input type="number" id="comm" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                            <div class="form-group">
+                                <label for="team">Teamwork</label>
+                                <input type="number" id="team" min="1" max="10" step="0.1" placeholder="1-10">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Professional Experience</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projCount">Projects Count</label>
+                                <input type="number" id="projCount" min="0" step="1" placeholder="e.g., 3">
+                            </div>
+                            <div class="form-group">
+                                <label for="internExp">Internship Experience</label>
+                                <select id="internExp">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="internDur">Internship Duration (Months)</label>
+                                <input type="number" id="internDur" min="0" step="1" placeholder="e.g., 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Interests & Technical Skills</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="interest">Interest Area</label>
+                                <select id="interest">
+                                    <option value="">Select Interest Area</option>
+                                    <option value="AI">Artificial Intelligence</option>
+                                    <option value="ML">Machine Learning</option>
+                                    <option value="Data">Data Science</option>
+                                    <option value="Web">Web Development</option>
+                                    <option value="App">App Development</option>
+                                    <option value="Cloud">Cloud Computing</option>
+                                    <option value="Cyber">Cybersecurity</option>
+                                    <option value="Blockchain">Blockchain</option>
+                                    <option value="IoT">Internet of Things</option>
+                                    <option value="Robotics">Robotics</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projTopic">Projects Topic</label>
+                                <select id="projTopic">
+                                    <option value="">Select Project Topic</option>
+                                    <option value="AI">AI</option>
+                                    <option value="ML">ML</option>
+                                    <option value="Data">Data</option>
+                                    <option value="Web">Web</option>
+                                    <option value="App">App</option>
+                                    <option value="Cloud">Cloud</option>
+                                    <option value="Cyber">Cyber</option>
+                                    <option value="Blockchain">Blockchain</option>
+                                    <option value="IoT">IoT</option>
+                                    <option value="Robotics">Robotics</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lang">Coding Language Known</label>
+                                <select id="lang">
+                                    <option value="">Select Coding Language</option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="C++">C++</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                    <option value="HTML/CSS">HTML/CSS</option>
+                                    <option value="C#">C#</option>
+                                    <option value="R">R</option>
+                                    <option value="Go">Go</option>
+                                    <option value="Swift">Swift</option>
+                                    <option value="Kotlin">Kotlin</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="sampleBtn" class="btn-secondary">
+                            <i class="fas fa-magic"></i> Load Sample Data
+                        </button>
+                        <button type="button" id="predictBtn" class="btn-primary">
+                            <i class="fas fa-rocket"></i> Predict My Career
+                        </button>
+                    </div>
+                    
+                    <div id="message" class="message"></div>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by AI & Machine Learning | CareerPro © 2023</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CareerPro - Prediction Results</title>
+    <link rel="stylesheet" href="results.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>CareerPro</h1>
+            </div>
+            <p class="tagline">Your Career Prediction Results</p>
+        </header>
+
+        <main>
+            <div class="result-hero">
+                <h1>Your Career Path Awaits</h1>
+                <p>Based on your unique skills, education, and interests</p>
+            </div>
+            
+            <div id="resultContent">
+                <div class="career-result">
+                    <i class="fas fa-rocket career-icon"></i>
+                    <h2 class="career-title" id="careerTitle">Loading...</h2>
+                    <p class="career-description">
+                        Our AI has analyzed your profile to suggest the most suitable career path for your skills and aspirations.
+                    </p>
+                    <div class="prediction-method" id="predictionMethod"></div>
+                </div>
+                
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <h3>Assessment Completed</h3>
+                    <p>Thank you <strong id="userName">User</strong> for using CareerPro!</p>
+                </div>
+                
+                <div class="resources-section" id="resourcesSection" style="display: none;">
+                    <h2 class="section-title">Learning Resources</h2>
+                    <p class="section-subtitle">
+                        We've curated the best resources to help you get started in your recommended career
+                    </p>
+                    
+                    <div class="resource-cards">
+                        <div class="resource-card">
+                            <h3><i class="fab fa-youtube"></i> YouTube Channels</h3>
+                            <ul class="resource-list" id="youtubeResources"></ul>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3><i class="fas fa-graduation-cap"></i> Free Courses</h3>
+                            <ul class="resource-list" id="freeCourses"></ul>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3><i class="fas fa-star"></i> Paid Courses</h3>
+                            <ul class="resource-list" id="paidCourses"></ul>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3><i class="fas fa-book"></i> Ebooks & Reading Materials</h3>
+                            <ul class="resource-list" id="ebooks"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="noResult" class="fallback" style="display: none;">
+                <i class="fas fa-exclamation-triangle fallback-icon"></i>
+                <h2>No Results Found</h2>
+                <p>We couldn't find your prediction results. Please complete the assessment form to get your career recommendation.</p>
+                <div class="action-buttons">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Back to Assessment
+                    </a>
+                </div>
+            </div>
+            
+            <div class="action-buttons" id="actionButtons" style="display: none;">
+                <a href="/" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Take Another Assessment
+                </a>
+                <button class="btn btn-primary" id="printBtn">
+                    <i class="fas fa-print"></i> Print Resources
+                </button>
+                <button class="btn btn-primary" id="saveBtn">
+                    <i class="fas fa-download"></i> Save Results
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by AI & Machine Learning | CareerPro © 2023</p>
+        </footer>
+    </div>
+
+    <script src="results.js"></script>
+</body>
+</html>
